@@ -54,10 +54,12 @@ exports.addPost = function(req, res) {
 
 exports.addComment =  function(req,res)
 {
-	var like = req.body.like;
+	var likes = req.body.like;
+	var userId = req.body.userId;
 	var comment  = req.body.comment;
-	q = ' insert into post(likes,comment) values(?,?) ';
-	connection.query(q,[likes,comment],function(err,result)
+
+	q = ' insert into comment(comment,likes,user_id) values(?,?,?) ';
+	connection.query(q,[comment,like,userId],function(err,result)
 	{
 		if(err)
 			sendResponse.somethingWentWrongError(err);

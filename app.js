@@ -20,9 +20,10 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.get('/',function(req,res)
 {
-	res.render('index.jade');
+	res.render('index.ejs');
 })
 
 app.post('/signup',signup.signUp);
