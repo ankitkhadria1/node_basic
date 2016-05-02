@@ -1,0 +1,22 @@
+Add a post
+<form action ='/add_post' method='post'>
+<textarea name="post_text" ></textarea>
+<input type='hidden' name='userId' value="<%= userId %>">
+<input type="submit">
+</form>
+
+All post
+<ul>
+
+<% for(var i=0; i <length; i++) {%>
+   <li><%= result['getPost'][i].post_text %></li>
+ <% if(userId!=result['getPost'][i].created_by)  { %>
+   <li><form method='post' action='/add_comment'>
+ 	  Likes :<input type='text' name='like' placeholder='1 or 0'><br>
+   <input type='text' name='comment' placeholder = "any comment">
+   </form></li>
+
+<% } %>
+<% } %>
+
+</ul>
